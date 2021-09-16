@@ -1,10 +1,23 @@
 <html>
   <head>
     <script>
-      parent.postMessage('Hello World!','https://garyfagan1987.gitlab.io');
+      function handleAddToBasket(id) {
+        console.log("Add To Basket");
+        parent.postMessage(JSON.stringify({
+          type: "ADD_TO_BASKET",
+          id: id,
+          qty: 1
+        }),'https://garyfagan1987.gitlab.io');
+      }
     </script>
   </head>
   <body>
     <h1>Iframe Test Post To Parent</h1>
+    <hr />
+    <h2>Product: 1</h2>
+    <button onClick="handleAddToBasket(1)">Add to Basket</button>
+    <hr />
+    <h2>Product: 2</h2>
+    <button onClick="handleAddToBasket(2)">Add to Basket</button>
   </body>
 </html>
